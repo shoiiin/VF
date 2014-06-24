@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_SiteLayout.cshtml";
+}
+
+<div class="pageContent">
+    @Html.Action("GetPostBoard","Main")
+</div>
+
+@section MainMenu{
+    @{
+        var homeData = new
+        {
+            Action = "Home"
+        };
+        var postData = new
+        {
+            Action = "Post"
+        };
+        var aboutData = new
+        {
+            Action = "About"
+        };
+    }
+
+    <div class="mainMenu">
+        <div class="menuItem home" data-vf="@(Json.Encode(homeData))">
+            <span class="icon48"></span>
+        </div>
+        <div class="menuItem post" data-vf="@(Json.Encode(postData))">
+            <span class="icon48"></span>
+        </div>
+        <div class="menuItem about" data-vf="@(Json.Encode(aboutData))">
+            <span class="icon48"></span>
+        </div>
+    </div>
+}

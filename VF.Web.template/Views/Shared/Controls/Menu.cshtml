@@ -1,0 +1,10 @@
+﻿@model VF.Web.Models.MenuModel
+
+<div class="menuControl">
+    @{
+        foreach (var menuItem in Model.MenuItems)
+        {
+            <div class="@(menuItem.ClassNames)">@menuItem.Label</div>
+        }
+    }
+</div>

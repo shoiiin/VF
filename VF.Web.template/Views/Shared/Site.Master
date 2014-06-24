@@ -1,0 +1,38 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link rel="stylesheet" href="<%=Url.Content("~/Content/site.css")%>" type="text/css" />
+    <link type="text/css" href="<%=Url.Content("~/Content/Themes/redmond/jquery-ui-1.8.21.custom.css")%>" rel="Stylesheet" />	
+    <script type="text/javascript" src="<%=Url.Content("~/Scripts/jquery-1.5.1.min.js")%>"></script>
+    <script type="text/javascript" src="<%=Url.Content("~/Scripts/jquery-ui-1.8.21.min.js")%>"></script>
+    <script type="text/javascript" src="<%=Url.Content("~/Scripts/ApplicationEnvironment.js")%>"></script>
+    <script type="text/javascript" src="<%=Url.Content("~/Scripts/AJAXAdapter.js")%>"></script>
+    <script type="text/javascript" src="<%=Url.Content("~/Scripts/Dialog.js")%>"></script>
+    <script type="text/javascript" src="<%=Url.Content("~/Scripts/site.js")%>"></script>
+</head>
+<body>
+    <div>
+        <h1>MVC Template</h1>
+    </div>
+    <div>
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+<script type="text/javascript">
+    var ClientEnvironment;
+    $(document).ready(function () {
+        try {
+            ClientEnvironment = new ApplicationEnvironment();
+        } catch (e) {
+            // make sure the user is warned if site is not initialized properly
+            // if application crashes here there must be somethig wrong with jQuery or other jQuery-based components
+            alert(e.Message);
+        }
+    });
+</script>
+</html>

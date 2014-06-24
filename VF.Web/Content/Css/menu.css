@@ -1,0 +1,26 @@
+﻿.mainMenu{
+    border-radius: 5px;
+    border: 1px solid #d6dbdd;
+    padding: 5px;
+    font-size: 1.4em;
+    text-align: center;    
+}
+
+.mainMenu .menuItem{
+    display:inline-block;
+    cursor:pointer;
+    margin:0 30px;
+}
+
+.menuItem.home .icon48 {
+    background-image: url('../Icons/Home.ico');
+}
+
+.menuItem.post .icon48 {
+    background-image: url('../Icons/Sound.ico');
+}
+
+.menuItem.about .icon48 {
+    background-image: url('../Icons/Globe.ico');
+}
+
