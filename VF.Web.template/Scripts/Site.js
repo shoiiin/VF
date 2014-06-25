@@ -10,7 +10,7 @@ function CallAJAX_HTML(url, operation) {
 
 function CallAJAX_HTML_Callback(htmlData) {
     var modalWindow = ClientEnvironment.GetModalWindow();
-    modalWindow.openModal(htmlData);
+    modalWindow.OpenModal(htmlData);
 }
 
 function CallAJAX_JSON(url, operation) {

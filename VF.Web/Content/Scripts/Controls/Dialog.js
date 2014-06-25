@@ -1,17 +1,17 @@
 
 function Dialog() {
-	var $dialog = $('<div></div>')
+    var $dialog = $('<div></div>')
 		.html('')
 		.dialog({
-			autoOpen: false,
-			title: 'Dialog',
-            modal:true,
-            dialogClass: 'popupWindow',
-            width:'auto'
+		    autoOpen: false,
+		    title: 'Dialog',
+		    modal: true,
+		    dialogClass: 'popupWindow',
+		    width: 'auto'
 		});
 
-    this.openModal = openModal;
-    this.close = close;
+    this.OpenModal = openModal;
+    this.Close = close;
 
     function openModal(htmlData) {
         $dialog.html(htmlData);

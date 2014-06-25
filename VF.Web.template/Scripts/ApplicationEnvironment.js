@@ -20,7 +20,7 @@ function ApplicationEnvironment() {
 
 function _stdErrorHandler(e) {
     var modalWindow = ClientEnvironment.GetModalWindow();
-    modalWindow.openModal(htmlData);
+    modalWindow.OpenModal(htmlData);
 }
 
 function _stdCloseWindow() {

@@ -1,17 +1,33 @@
-﻿.bgCol1 {
-    background-color: #D7F38F;
+﻿.postItCol1 {
+    background-color: #B5FF98;
 }
 
-.bgCol2 {
-    background-color: #FCFCB7;
+.postItCol1 .postHeader{
+    background-color: #96D37F;
 }
 
-.bgCol3 {
+.postItCol2 {
+    background-color: #FFF96E;
+}
+
+.postItCol2 .postHeader{
+    background-color: #D8D251;
+}
+
+.postItCol3 {
     background-color: #C7D4EB;
 }
 
-.bgCol4 {
+.postItCol3 .postHeader{
+    background-color: #AAC5E7;
+}
+
+.postItCol4 {
     background-color: #FFA0A0;
+}
+
+.postItCol4 .postHeader{
+    background-color: #FF7979;
 }
 
 .postBoard {
@@ -20,7 +36,6 @@
     top: 0;
     left: 0;
     right: 0;
-    background-color: #fff;
 }
 
 .postBoard .postIt {
@@ -30,37 +45,44 @@
     width: 300px;
     border: 1px solid #d6dbdd;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
-    padding: 10px;
+    padding: 5px;
 }
 
 .postBoard .postHeader 
 {
-    background-color:inherit;
     font-weight: bold;
-    padding-bottom: 5px;
-    border-bottom: 1px solid #6E7070;
+    line-height: 30px;
+    padding-left:5px;
+    border-radius:3px;
 }
 
 .postBoard .postContents 
 {
     padding-top: 5px;
     position: absolute;
-    top: 34px;
+    top: 35px;
     bottom: 10px;
     left: 10px;
+    right:5px;
     bottom:10px;
     overflow-y: auto;
 }
 
 .postBoard .postIt .close{
-    background-color:inherit;
     position:absolute;
-    top:-12px;
-    right:-12px;
-    border-radius:17px;
-    border:1px solid #6E7070;
+    top:11px;
+    right:7px;
+    border: 1px solid #45930b;
+    border-radius:10px;
+    font-weight: normal;
+    color: #fff;
 }
 
-.postBoard .postIt .close .icon24 {
-    background-image:url('../Icons/close.png');
+.postBoard .postIt .close .icon16 {
+    background-image: url("../Icons/ui-icons_ffffff_256x240.png");
+    font-weight: normal;
+    color: #fff;
+    background-position: -96px -128px;
+    margin-top:-1px;
+    margin-left:-1px;
 }

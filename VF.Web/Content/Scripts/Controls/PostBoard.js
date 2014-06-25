@@ -8,7 +8,7 @@
         PostIt: '.postIt',
         Title: '.postHeader .title',
         Contents: '.postContents',
-        Close:'.postItHeader .close'
+        Close: '.close'
     };
 
     var Constants = {
@@ -24,18 +24,20 @@
 
     function init() {
         $(document).delegate(Selector.PostIt, VF.Click, function (event) {
-            var control = $(this).closest(Selector.Control);
-            $(this).css({ 'z-index': zIndex++ });
-        });
-        $(document).delegate(Selector.Close, VF.Click, function (event) {
-            var postIt = $(this).closest(Selector.PostIt);
-            postIt.remove();
+            var closeBtn = $(event.target).closest('.close');
+            if (closeBtn.length > 0) {
+                var postIt = $(this).closest(Selector.PostIt);
+                postIt.remove();
+            } else {
+                var control = $(this).closest(Selector.Control);
+                $(this).css({ 'z-index': zIndex++ });
+            }
         });
     }
 
     function getAllPosts() {
         var ajaxProxy = VF.Environment.GetAJAXAdapter();
-        var url = Constants.Controller + "/" + Constants.Action.GetAllPosts;
+        var url = VF.Environment.RootURL + Constants.Controller + "/" + Constants.Action.GetAllPosts;
         ajaxProxy.call(url, getAllPosts_Callback);
     }
 
@@ -56,19 +58,19 @@
             'top': randomUI.top + 'px',
             'left': randomUI.left + 'px'
         });
-        postItClone.addClass(randomUI.bgClass);
+        postItClone.addClass(randomUI.postItClass);
         control.append(postItClone);
     }
 
     function getRandomUI(control, postItSize) {
-        var postItClass = ['bgCol1', 'bgCol2', 'bgCol3', 'bgCol4'];
+        var postItClass = ['postItCol1', 'postItCol2', 'postItCol3', 'postItCol4'];
         var height = control.outerHeight();
         var width = control.outerWidth();
 
         var postItPos = {
             top: Math.floor(Math.random() * 1000) % (height - postItSize.height),
             left: Math.floor(Math.random() * 1000) % (width - postItSize.width),
-            bgClass: postItClass[Math.floor(Math.random() * 10) % 4]
+            postItClass: postItClass[Math.floor(Math.random() * 10) % 4]
         };
         return postItPos;
     }

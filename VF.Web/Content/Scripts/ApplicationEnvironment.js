@@ -5,9 +5,9 @@ Provides information regarding the application environment
 function ApplicationEnvironment() {
     var ajaxProxy = new AJAXAdapter();
     ajaxProxy.setErrorHandler = _stdErrorHandler;
-//    var modalWindow = new Dialog();
+    var modalWindow = new Dialog();
 
-
+    this.RootURL = window.location + "/";
     this.GetAJAXAdapter = getAJAXAdapter;
     this.GetModalWindow = getModalWindow;
 
@@ -21,12 +21,12 @@ function ApplicationEnvironment() {
 
     function _stdErrorHandler(e) {
         var modalWindow = ClientEnvironment.GetModalWindow();
-        modalWindow.openModal(htmlData);
+        modalWindow.OpenModal(htmlData);
     }
 
     function _stdCloseWindow() {
         var modalWindow = ClientEnvironment.GetModalWindow();
-        modalWindow.close();
+        modalWindow.Close();
     }
 }
 

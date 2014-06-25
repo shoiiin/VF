@@ -35,8 +35,8 @@ function AJAXAdapter() {
 	this.async = true;
 
 	function ajaxErrorHandler(event, jqXHR, ajaxSettings, thrownError) {
-	    var modalWindow = ClientEnvironment.GetModalWindow();
-	    modalWindow.openModal(jqXHR.responseText);
+	    var modalWindow = VF.Environment.GetModalWindow();
+	    modalWindow.OpenModal(jqXHR.responseText);
 //	    alert(jqxhr.responseText);
 	}
 

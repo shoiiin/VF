@@ -10,8 +10,8 @@ function Dialog() {
             width:'auto'
 		});
 
-    this.openModal = openModal;
-    this.close = close;
+    this.OpenModal = openModal;
+    this.Close = close;
 
     function openModal(htmlData) {
         $dialog.html(htmlData);

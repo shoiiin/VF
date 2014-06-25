@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/reset.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Css/themes/le-frog/jquery-ui-1.10.4.custom.min.css")" type="text/css" />
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/site.css")" type="text/css" />
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/menu.css")" type="text/css" />
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/postBoard.css")" type="text/css" />
 
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/3rdParty/jquery-1.11.0.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/3rdParty/jquery-ui-1.10.4.min.js")"></script>
 
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/site.js")"></script>
 
@@ -47,7 +49,6 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">Varsa-ti fierea !</div>
         @RenderSection("MainMenu", required: false)
     </div>
     <div class="content">
