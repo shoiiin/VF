@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/reset.css")" type="text/css" />
-    <link rel="stylesheet" href="@Url.Content("~/Content/Css/themes/le-frog/jquery-ui-1.10.4.custom.min.css")" type="text/css" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/Css/themes/base/jquery.ui.all.css")" type="text/css" />
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/site.css")" type="text/css" />
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/menu.css")" type="text/css" />
     <link rel="stylesheet" href="@Url.Content("~/Content/Css/postBoard.css")" type="text/css" />
@@ -49,7 +49,33 @@
 </head>
 <body>
     <div class="header">
-        @RenderSection("MainMenu", required: false)
+        @{
+            var homeData = new
+            {
+                Action = "HOME"
+            };
+            var postData = new
+            {
+                Action = "POST"
+            };
+            var aboutData = new
+            {
+                Action = "ABOUT"
+            };
+        }
+
+        <div class="mainMenu">
+            <div class="logo">Varsa-ti fierea !</div>
+            <div class="menuItem home" data-vf="@(Json.Encode(homeData))">
+                <span class="icon48"></span>
+            </div>
+            <div class="menuItem post" data-vf="@(Json.Encode(postData))">
+                <span class="icon48"></span>
+            </div>
+            <div class="menuItem about" data-vf="@(Json.Encode(aboutData))">
+                <span class="icon48"></span>
+            </div>
+        </div>
     </div>
     <div class="content">
         @RenderBody()

@@ -38,6 +38,7 @@
     function getAllPosts() {
         var ajaxProxy = VF.Environment.GetAJAXAdapter();
         var url = VF.Environment.RootURL + Constants.Controller + "/" + Constants.Action.GetAllPosts;
+        ajaxProxy.setAJAXReturnFormat('json');
         ajaxProxy.call(url, getAllPosts_Callback);
     }
 
