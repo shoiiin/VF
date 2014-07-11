@@ -15,15 +15,15 @@ function AJAXAdapter() {
 
 	var ajaxCallType = "POST";
 	var ajaxReturnFormat = "json";
-	var params = {};
+	var requestData = {};
 	var errorHandlerFunction = null;
 	var cache = false;
 	
 	this.setAJAXReturnFormat = setAJAXReturnFormat;
 	this.setAJAXCallType = setAJAXCallType;
 	this.setAJAXCache = setAJAXCache;
-	this.setParametersFromContainer = setParametersFromContainer;
-	this.setParameters = setParameters;
+	this.setDataFromContainer = setDataFromContainer;
+	this.setData = setData;
 	this.call = call;
 
 	/*
@@ -89,14 +89,14 @@ function AJAXAdapter() {
 	
 	
 	/*
-	 * Function: setParametersFromContainer
+	 * Function: setDataFromContainer
 	 * Sets the AJAX call parameters from form fields.	
 	 * 
 	 * Parameters:
-	 * 	containerId - the container form ID
+	 * 	container - the container form
 	 *  paramOption - can be one of OVERWRITE_PARAM or APPEND_PARAM
 	*/
-	function setParametersFromContainer(containerId)
+	function setDataFromContainer(container, paramOption)
 	{
 		try
 		{
@@ -107,11 +107,11 @@ function AJAXAdapter() {
 			        if ($(el).attr('type') == 'radio') {
 			            var checked = $(el).is(':checked');
 			            if (checked == true) {
-			                params[el.id] = $(el).val();
+			                requestData[el.id] = $(el).val();
 			            }
 			        }
 			        else {
-			            params[el.id] = $(el).val();
+			            requestData[el.id] = $(el).val();
 			        }
 			    }
 			});
@@ -122,14 +122,14 @@ function AJAXAdapter() {
 	}
 
 	/*
-	* Function: setParameters
-	* Sets the AJAX call parameters.	
+	* Function: setData
+	* Sets the AJAX call data.	
 	* 
 	* Parameters:
-	* 	newParams - params object
+	* 	dataObj - data object
 	*/
-	function setParameters(paramsObj) {
-        params = paramsObj;
+	function setData(dataObj) {
+        requestData = dataObj;
 	}
 
 	/*
@@ -149,7 +149,7 @@ function AJAXAdapter() {
 			retVal = $.ajax({
 				type: ajaxCallType,
 				dataType: ajaxReturnFormat,
-				data: params,
+				data: requestData,
 				url:location,
 				cache: cache,
 				async: this.async,

@@ -39,6 +39,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Caching">
       <HintPath>..\packages\EnterpriseLibrary.Caching.5.0.505.0\lib\NET35\Microsoft.Practices.EnterpriseLibrary.Caching.dll</HintPath>
@@ -131,6 +138,11 @@
     </Compile>
     <Compile Include="Models\MenuItemModel.cs" />
     <Compile Include="Models\MenuModel.cs" />
+    <Compile Include="Models\Requests\PostBoard\CreateMessageRequest.cs" />
+    <Compile Include="Models\Requests\RequestBase.cs" />
+    <Compile Include="Models\Responses\PostBoard\ReadAllMessagesResponse.cs" />
+    <Compile Include="Models\Responses\PostBoard\CreateMessageResponse.cs" />
+    <Compile Include="Models\Responses\ResponseBase.cs" />
     <Compile Include="Models\Shared\ApplicationErrorModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -214,6 +226,7 @@
     <Content Include="Content\Scripts\Controls\Dialog.js" />
     <Content Include="Content\Css\reset.css" />
     <Content Include="Content\Css\site.css" />
+    <Content Include="Content\Scripts\Controls\PostMessageForm.js" />
     <Content Include="Content\Scripts\Controls\PostBoard.js" />
     <Content Include="Content\Scripts\Controls\Menu.js" />
     <Content Include="Content\Scripts\Site.js" />
@@ -256,6 +269,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\ErrorDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Main\GetPostMessageForm.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

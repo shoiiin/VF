@@ -86,3 +86,54 @@
     margin-top:-1px;
     margin-left:-1px;
 }
+
+.postMessagePopup .ui-dialog-titlebar{
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+} 
+
+.postMessagePopup .ui-dialog-content{
+    padding:0;
+} 
+
+.postMessageForm{
+    width:600px;
+    height:450px;
+    background-color:#B2F89C;
+    font-size: 0.8em;
+    padding:10px;
+}
+
+.postMessageForm .formHeader {
+    line-height:30px;
+}
+
+.postMessageForm label {
+    display:block;
+    font-weight:bold;
+    line-height:20px;
+}
+
+.postMessageForm .formHeader .messageTitle {
+    width:100%;
+}
+
+.postMessageForm .formContents .messageBody{
+    width:100%;
+    height: 315px;
+}
+
+.postMessageForm .formActions{
+    position:absolute;
+    bottom:10px;
+}
+
+.postMessageForm .formActions .sendMessage{
+    background-color:#F79503;
+    color: #fff;
+    border: 1px solid;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding:5px 20px;
+    cursor:pointer;
+}

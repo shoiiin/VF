@@ -5,14 +5,18 @@ using System.Web;
 using System.Web.Mvc;
 
 using VF.Business.Models;
+using VF.Business.Services;
+using VF.Web.Models.Requests;
+using VF.Web.Models.Responses;
 
 namespace VF.Web.Controllers
 {
-    public class PostBoardController : Controller
+    public class PostBoardController : BaseController
     {
         //
         // GET: /PostBoard/
 
+        [HttpPost]
         public JsonResult GetAllPosts()
         {
             var stdMsg = new string[]{
@@ -20,15 +24,29 @@ namespace VF.Web.Controllers
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in dui id elit sagittis semper. Integer quis diam vitae libero convallis vestibulum et at nisl. Sed nec enim blandit urna ultrices malesuada. Aliquam quis tellus ligula. Sed sed sem ut arcu gravida mollis nec ac tortor. Vestibulum accumsan, lacus quis blandit feugiat, odio tortor imperdiet nisi, ut facilisis diam elit ut nunc. Sed bibendum augue non nulla consequat suscipit. Nulla tellus odio, ultrices aliquet eros nec, placerat venenatis mauris. Aenean pellentesque, nulla et laoreet convallis, urna turpis malesuada nisl, ac venenatis libero nunc et nulla."
             };
 
-            var posts = new Posts();
-            for(var crtMsg = 0; crtMsg < 7; crtMsg++){
-                posts.PostItems.Add(new MessageData{
-                    Message = stdMsg[crtMsg % 2],
-                    Title = String.Format("Message heading {0}", crtMsg)
-                });
-            }
+            var postBoardService = new PostBoardService();
+            ReadAllMessagesResponse posts = new ReadAllMessagesResponse
+            {
+                PostItems = (List<MessageData>)postBoardService.ReadAll()
+            };
             return Json(posts);
         }
 
+        [HttpPost]
+        public JsonResult CreateMessage(CreateMessageRequest request)
+        {
+            var response = new CreateMessageResponse();
+            var messageData = new MessageData
+            {
+                Sender = request.Sender,
+                Title = request.Title,
+                Body = request.Body
+            };
+
+            var postBoardService = new PostBoardService();
+            var newMessage = postBoardService.Create(messageData);
+
+            return Json(response);
+        }
     }
 }

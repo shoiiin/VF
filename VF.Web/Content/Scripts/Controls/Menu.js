@@ -13,8 +13,8 @@
             Action: 'GetPostBoard'
         },
         Post: {
-            Controller: '',
-            Action: ''
+            Controller: 'Main',
+            Action: 'GetPostMessageForm'
         },
         About: {
             Controller: '',
@@ -33,11 +33,26 @@
                     ajaxProxy.setAJAXReturnFormat('html');
                     ajaxProxy.call(url, homeAction_Callback);
                     break;
+                case 'POST':
+                    var ajaxProxy = VF.Environment.GetAJAXAdapter();
+                    var url = VF.Environment.RootURL + MenuAction.Post.Controller + "/" + MenuAction.Post.Action;
+                    ajaxProxy.setAJAXReturnFormat('html');
+                    ajaxProxy.call(url, postAction_Callback);
+                    break;
             }
         });
     }
 
     function homeAction_Callback(htmlData) {
         $(Selector.PageContent).html(htmlData);
+    }
+
+    function postAction_Callback(htmlData) {
+        var modalWindow = VF.Environment.GetModalWindow();
+        modalWindow.OpenModal(htmlData, {
+            dialogClass: 'postMessagePopup',
+            title: 'Varsa-ti fierea !',
+            resizable: false
+            });
     }
 }

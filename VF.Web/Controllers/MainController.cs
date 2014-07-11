@@ -26,5 +26,10 @@ namespace VF.Web.Controllers
         {
             return View();
         }
+
+        public ActionResult GetPostMessageForm()
+        {
+            return View();
+        }
     }
 }

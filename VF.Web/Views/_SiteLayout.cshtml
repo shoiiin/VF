@@ -20,6 +20,7 @@
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/Controls/Dialog.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/Controls/Menu.js")"></script>
     <script type="text/javascript" src="@Url.Content("~/Content/Scripts/Controls/PostBoard.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Content/Scripts/Controls/PostMessageForm.js")"></script>
 
 <script type="text/javascript">
 
@@ -38,6 +39,10 @@
             {
                 Name: 'PostBoard',
                 Instance: new PostBoard()
+            },
+            {
+                Name: 'PostMessageForm',
+                Instance: new PostMessageForm()
             }
         ];
         $(initObjects).each(function (crtObj, obj) {

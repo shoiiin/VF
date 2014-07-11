@@ -13,7 +13,11 @@ function Dialog() {
     this.OpenModal = openModal;
     this.Close = close;
 
-    function openModal(htmlData) {
+    function openModal(htmlData, dialogOptions) {
+        dialogOptions = dialogOptions || {};
+        for (var option in dialogOptions) {
+            $dialog.dialog('option', option, dialogOptions[option]);
+        }
         $dialog.html(htmlData);
         $dialog.dialog('open');
     }

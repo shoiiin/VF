@@ -53,7 +53,7 @@
     function renderPostIt(control, postItTemplate, postData) {
         var postItClone = postItTemplate.clone();
         postItClone.find(Selector.Title).text(postData.Title);
-        postItClone.find(Selector.Contents).text(postData.Message);
+        postItClone.find(Selector.Contents).text(postData.Body);
         var randomUI = getRandomUI(control, { height: Constants.PostItHeight, width: Constants.PostItWidth});
         postItClone.css({
             'top': randomUI.top + 'px',
